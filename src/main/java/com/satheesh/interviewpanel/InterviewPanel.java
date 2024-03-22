@@ -25,9 +25,9 @@ public class InterviewPanel {
     }
 
     private void create() {
-        LoginView loginView=new LoginView();
+    LoginView loginView=new LoginView();
         loginView.init();
-    }
+}
     public static void main(String[] args) {
         interviewPanel.getInstance().create();
     }

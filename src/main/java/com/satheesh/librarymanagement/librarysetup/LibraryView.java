@@ -35,8 +35,18 @@ public class LibraryView {
         Library library = new Library();
         System.out.println("\nEnter library name:");
         library.setLibraryName(scanner.nextLine());
+        if(!libraryModel.validateName(library.getLibraryName())) {
+            System.out.println("Invalid name");
+            System.out.println("Please Reenter the details");
+            intiateSetup();
+        }
         System.out.println("\nEnter library email:");
         library.setEmailId(scanner.nextLine());
+        if(!libraryModel.validateEmailId(library.getEmailId())) {
+            System.out.println("Invalid email");
+            System.out.println("Please Reenter the details");
+            intiateSetup();
+        }
         libraryModel.createLibrary(library);
     }
 }

@@ -8,7 +8,7 @@ import static com.satheesh.interviewpanel.database.DbCode.credentialsMap;
 
 public class LoginModel {
     private  LoginView loginView;
-    private InterviewPanelView interviewPanelView=new InterviewPanelView();
+    private InterviewPanelView interviewPanelView;
 
     public LoginModel(LoginView loginView){
         this.loginView=loginView;
@@ -37,13 +37,7 @@ public class LoginModel {
 
     public void passwordReset(String userName, String password) {
         DbCode.getInstance().credentialsMap.put(userName, password);
-
-        if(password.equals(DbCode.getInstance().credentialsMap.get(userName))){
-            loginView.showAlert("Successfully login");
-            interviewPanelView.init();
-        }else{
-            loginView.showAlert("Invalid Username");
-        }
+        loginView.proceedLogin();
 
     }
 }

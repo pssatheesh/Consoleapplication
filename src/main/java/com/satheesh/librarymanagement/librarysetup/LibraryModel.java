@@ -1,6 +1,7 @@
 package com.satheesh.librarymanagement.librarysetup;
 
 import com.satheesh.librarymanagement.database.DbCode;
+import com.satheesh.librarymanagement.database.Validation;
 import com.satheesh.librarymanagement.model.Library;
 
 public class LibraryModel {
@@ -20,10 +21,15 @@ public class LibraryModel {
 
 
     public void createLibrary(Library library) {
-        if(library.getLibraryName().length()>3 || library.getLibraryName().length()<50){
-            System.out.println("Enter Valid Name");
-        }
         this.library=DbCode.getInstance().insertLibrary(library);
         libraryView.onSetupComplete(library);
+    }
+
+    public boolean validateEmailId(String emailId) {
+        return Validation.getInstance().validateEmail(emailId);
+    }
+
+    public boolean validateName(String libraryName) {
+        return Validation.getInstance().validateName(libraryName);
     }
 }

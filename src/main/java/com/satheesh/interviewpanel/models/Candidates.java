@@ -1,15 +1,21 @@
 package com.satheesh.interviewpanel.models;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
+import java.util.Locale;
+
 public class Candidates {
     private int candidateId;
     private String candidateName;
     private String mobileNo;
     private String location;
+    private String candidateStatus;
     private String inDate;
     private String inTime;
-    private String candidateStatus;
     private String outDate;
     private String outTime;
+    public Candidates(){}
 
     public int getCandidateId() {
         return candidateId;
@@ -43,6 +49,16 @@ public class Candidates {
         this.location = location;
     }
 
+
+
+    public String getCandidateStatus() {
+        return candidateStatus;
+    }
+
+    public void setCandidateStatus(String candidateStatus) {
+        this.candidateStatus = candidateStatus;
+    }
+
     public String getInDate() {
         return inDate;
     }
@@ -57,14 +73,6 @@ public class Candidates {
 
     public void setInTime(String inTime) {
         this.inTime = inTime;
-    }
-
-    public String getCandidateStatus() {
-        return candidateStatus;
-    }
-
-    public void setCandidateStatus(String candidateStatus) {
-        this.candidateStatus = candidateStatus;
     }
 
     public String getOutDate() {
@@ -83,16 +91,14 @@ public class Candidates {
         this.outTime = outTime;
     }
 
-    public Candidates(int candidateId, String candidateName, String mobileNo, String location, String inDate, String inTime, String candidateStatus) {
+    public Candidates(int candidateId, String candidateName, String mobileNo, String location, String candidateStatus, String inDate, String inTime) {
         this.candidateId = candidateId;
         this.candidateName = candidateName;
         this.mobileNo = mobileNo;
         this.location = location;
+        this.candidateStatus = candidateStatus;
         this.inDate = inDate;
         this.inTime = inTime;
-        this.candidateStatus = candidateStatus;
-        this.outDate = null;
-        this.outTime = null;
     }
 
     @Override
@@ -101,9 +107,9 @@ public class Candidates {
                 "\t" + candidateName +
                 "\t" + mobileNo +
                 "\t" + location +
+                "\t" + candidateStatus +
                 "\t" + inDate +
                 "\t" + inTime +
-                "\t" + candidateStatus +
                 "\t" + outDate +
                 "\t" + outTime  ;
     }

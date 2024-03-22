@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.satheesh.librarymanagement.MainMenu;
+import com.satheesh.librarymanagement.issuebook.IssueBookView;
 import com.satheesh.librarymanagement.login.LoginView;
 import com.satheesh.librarymanagement.manageUser.ManageUserView;
 import com.satheesh.librarymanagement.model.Book;
@@ -19,13 +21,19 @@ public class ManageBookView {
     public void init() {
         Scanner scanner=new Scanner(System.in);
         while(true) {
-            System.out.println("1.Add Book\n2.View Book\n3.Delete Book \n4.Update the Books count \n5.Add customers \n6.View User Details \n7.Logout\n8.Exit");
+            System.out.println("1.Add Book\n2.View Book\n3.Delete Book \n4.Update the Books count \n5.Back to Mainmenu");
             System.out.println("Enter your choice:");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1: {
                     System.out.println("Enter the Book Name:");
                     String bookName = scanner.next();
+                    if(!manageBookModel.validateName(bookName)) {
+                        System.out.println("Invalid name");
+                        System.out.println("Please Reenter the details");
+                        init();
+                        return;
+                    }
                     System.out.println("Enter the Book id:");
                     int bookId = scanner.nextInt();
                     System.out.println("Enter the Book Author:");
@@ -70,25 +78,12 @@ public class ManageBookView {
                     manageBookModel.bookUpdate(bookId, avaliableCount);
                     break;
                 } case 5: {
-                    // Customer Creation
-                    manageUserView.initAdd();
-                    break;
-                } case 6: {
-                    // View Customer details
-                    manageUserView.viewUser();
-                    break;
-                } case 7:{
-                    System.out.println("Logout Successfully");
-                    LoginView loginView=new LoginView();
-                    loginView.logincode();
+                    MainMenu.getInstance().init();
                     break;
                 }
-                case 8: {
-                    System.out.println("Exit the app");
-                    break;
-                } default:
+                 default:
                     System.out.println("Invalid choice");
-                    break;
+                    init();
             }
         }
 

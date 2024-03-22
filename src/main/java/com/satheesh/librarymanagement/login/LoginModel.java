@@ -30,7 +30,7 @@ class LoginModel {  //Remove the access specifier(public) because not access any
     }
 
     private boolean isValidPassword(String password){
-        return password.equals("Java@123");
+        return password.equals("Java");
     }
 
 

@@ -1,6 +1,7 @@
 package com.satheesh.librarymanagement.login;
 
 import com.satheesh.librarymanagement.LibraryManagement;
+import com.satheesh.librarymanagement.MainMenu;
 import com.satheesh.librarymanagement.librarysetup.LibraryView;
 
 import java.util.Scanner;
@@ -41,10 +42,9 @@ public class LoginView {
     }
     public void onSuccess() {
         System.out.flush();
-        System.out.println("\n\nLogin successful...\n\n--- welcome to "+LibraryManagement.getInstance().getAppName()+"- v"+LibraryManagement.getInstance().getAppVersion()+"----");
+        System.out.println("\n\nLogin successful.");
         LibraryView libraryView=new LibraryView();
-        libraryView.init();
-        //loginModel.librarySetup();
+        MainMenu.getInstance().init();
     }
     private void proceedLogin() {
         Scanner scanner = new Scanner(System.in);

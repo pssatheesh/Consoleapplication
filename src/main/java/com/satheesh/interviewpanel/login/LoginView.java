@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class LoginView {
     private LoginModel loginModel;
+    private InterviewPanelView interviewPanelView;
 
     public LoginView(){
         loginModel =new LoginModel(this);
@@ -19,7 +20,7 @@ public class LoginView {
         proceedLogin();
     }
 
-    private void proceedLogin() {
+    public void proceedLogin() {
         Scanner scan=new Scanner(System.in);
         System.out.println("Enter the username");
         String userName=scan.next();
@@ -50,15 +51,18 @@ public class LoginView {
     }
 
     public void success() {
-        Scanner scanner=new Scanner(System.in);
         System.out.println("---Welcome to Satheesh Info---");
         System.out.println("To Reset your Username and password");
+        InterviewPanelView interviewPanelView1=new InterviewPanelView();
+        interviewPanelView1.init();
+    }
+    public void passwordReset(){
+        Scanner scanner=new Scanner(System.in);
         System.out.println("Enter new username");
         String userName=scanner.next();
         System.out.println("Enter new password");
         String password=scanner.next();
         loginModel.passwordReset(userName,password);
-
 
     }
 
