@@ -1,9 +1,17 @@
 ## Library Management
-Type of Application: B2C
-Target Audience: Admin/customer
-Development Time: 3 days
-Tech stack: Using Java Programming language and Ecilipse IDE
-Features:
+
+### Overview
+Developed a Console application for Library to stores and manage the books. Also created the Users to access the book and manage the details. To store the data of the library using JSON file.
+
+### Future Enhancement
+In future, I will develop directly the user to access the book without the help of admin.
+
+- Type of Application: B2C
+- Target Audience: Admin/customer
+- Development Time: 3 days
+- Tech stack: Using Java Programming language and Ecilipse IDE
+
+### Features:
 ### Admin:
 - Library setup 
 - Admin user Login
