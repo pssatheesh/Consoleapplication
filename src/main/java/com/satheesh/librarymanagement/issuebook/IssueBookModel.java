@@ -1,6 +1,7 @@
 package com.satheesh.librarymanagement.issuebook;
 
 import com.satheesh.librarymanagement.database.DbCode;
+import com.satheesh.librarymanagement.model.Book;
 import com.satheesh.librarymanagement.model.IssueBook;
 
 import java.time.LocalDate;
@@ -12,6 +13,8 @@ public class IssueBookModel {
     public IssueBookModel(IssueBookView issueBookView){
         this.issueBookView=issueBookView;
     }
+
+    private Book book=new Book();
 
     public boolean addBookDetails(int userId, int bookId, int bookCount, LocalDate issueDate, LocalDate returnDate) {
         DbCode.getInstance().addUserBookDetails(new IssueBook(userId, bookId, bookCount, issueDate.toString(), returnDate.toString()));
